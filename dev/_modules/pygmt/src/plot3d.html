@@ -256,6 +256,7 @@
     <span class="n">X</span><span class="o">=</span><span class="s2">&quot;xshift&quot;</span><span class="p">,</span>
     <span class="n">Y</span><span class="o">=</span><span class="s2">&quot;yshift&quot;</span><span class="p">,</span>
     <span class="n">Z</span><span class="o">=</span><span class="s2">&quot;zvalue&quot;</span><span class="p">,</span>
+    <span class="n">a</span><span class="o">=</span><span class="s2">&quot;aspatial&quot;</span><span class="p">,</span>
     <span class="n">i</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">,</span>
     <span class="n">l</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
     <span class="n">c</span><span class="o">=</span><span class="s2">&quot;panel&quot;</span><span class="p">,</span>
@@ -332,11 +333,14 @@
 <span class="sd">        Offset the plot symbol or line locations by the given amounts</span>
 <span class="sd">        *dx*/*dy*\ [/*dz*] [Default is no offset].</span>
 <span class="sd">    {G}</span>
-<span class="sd">    intensity : float or bool</span>
-<span class="sd">        Provide an *intens* value (nominally in the -1 to +1 range) to</span>
-<span class="sd">        modulate the fill color by simulating illumination [Default is None].</span>
-<span class="sd">        If using ``intensity=True``, we will instead read *intens* from the</span>
-<span class="sd">        first data column after the symbol parameters (if given).</span>
+<span class="sd">    intensity : float or bool or 1d array</span>
+<span class="sd">        Provide an *intensity* value (nominally in the -1 to +1 range) to</span>
+<span class="sd">        modulate the fill color by simulating illumination. If using</span>
+<span class="sd">        ``intensity=True``, we will instead read *intensity* from the first</span>
+<span class="sd">        data column after the symbol parameters (if given). *intensity* can</span>
+<span class="sd">        also be a 1d array to set varying intensity for symbols, but it is only</span>
+<span class="sd">        valid for ``x``/``y``/``z``.</span>
+
 <span class="sd">    close : str</span>
 <span class="sd">        [**+b**\|\ **d**\|\ **D**][**+xl**\|\ **r**\|\ *x0*]\</span>
 <span class="sd">        [**+yl**\|\ **r**\|\ *y0*][**+p**\ *pen*].</span>
@@ -373,6 +377,7 @@
 <span class="sd">        polygon in the input data. To apply it to the fill color, use</span>
 <span class="sd">        ``color=&#39;+z&#39;``. To apply it to the pen color, append **+z** to</span>
 <span class="sd">        ``pen``.</span>
+<span class="sd">    {a}</span>
 <span class="sd">    {c}</span>
 <span class="sd">    {f}</span>
 <span class="sd">    label : str</span>
@@ -403,9 +408,14 @@
             <span class="p">)</span>
         <span class="n">extra_arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="s2">&quot;t&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">is_nonstr_iter</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]):</span>
-        <span class="n">extra_arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">])</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">flag</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">flag</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">is_nonstr_iter</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="n">flag</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">!=</span> <span class="s2">&quot;vectors&quot;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">GMTInvalidInput</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Can&#39;t use arrays for </span><span class="si">{</span><span class="n">plot3d</span><span class="o">.</span><span class="n">aliases</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span><span class="si">}</span><span class="s2"> if data is matrix or file.&quot;</span>
+                <span class="p">)</span>
+            <span class="n">extra_arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="n">flag</span><span class="p">])</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="n">flag</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
     <span class="k">with</span> <span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">lib</span><span class="p">:</span>
         <span class="c1"># Choose how data will be passed in to the module</span>
@@ -432,7 +442,7 @@
         &copy; Copyright 2017-2021, The PyGMT Developers.
       
         <span class="commit">
-          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/8e2b2e6">8e2b2e6</a></code>.
+          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/a74fd39">a74fd39</a></code>.
         </span>
       
 

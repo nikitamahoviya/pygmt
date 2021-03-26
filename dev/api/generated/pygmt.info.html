@@ -270,7 +270,9 @@ of [<em>zmin</em>, <em>zmax</em>, <em>dz</em>] for makecpt.</p>
 <li><p>I = spacing</p></li>
 <li><p>T = nearest_multiple</p></li>
 <li><p>V = verbose</p></li>
+<li><p>a = aspatial</p></li>
 <li><p>f = coltypes</p></li>
+<li><p>r = registration</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -280,9 +282,11 @@ a pandas dataframe, or an xarray dataset made up of 1D xarray.DataArray
 data variables.</p></li>
 <li><p><strong>per_column</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Report the min/max values per column in separate columns.</p></li>
 <li><p><strong>spacing</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – [<strong>b</strong>|<strong>p</strong>|<strong>f</strong>|<strong>s</strong>]<em>dx</em>[/<em>dy</em>[/<em>dz</em>…]].
-Report the min/max of the first n columns to the nearest multiple of
-the provided increments and output results in the form
-<code class="docutils literal notranslate"><span class="pre">[w,</span> <span class="pre">e,</span> <span class="pre">s,</span> <span class="pre">n]</span></code>.</p></li>
+Compute the min/max values of the first n columns to the nearest
+multiple of the provided increments [default is 2 columns]. By default,
+output results in the form <code class="docutils literal notranslate"><span class="pre">[w,</span> <span class="pre">e,</span> <span class="pre">s,</span> <span class="pre">n]</span></code>, unless <code class="docutils literal notranslate"><span class="pre">per_column</span></code> is
+set in which case we output each min and max value in separate output
+columns.</p></li>
 <li><p><strong>nearest_multiple</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – <strong>dz</strong>[<strong>+c</strong><em>col</em>].
 Report the min/max of the first (0’th) column to the nearest multiple
 of dz and output this in the form <code class="docutils literal notranslate"><span class="pre">[zmin,</span> <span class="pre">zmax,</span> <span class="pre">dz]</span></code>.</p></li>
@@ -298,10 +302,16 @@ written to stderr. Choose among 7 levels of verbosity:</p>
 <li><p><strong>d</strong> - Debugging messages</p></li>
 </ul>
 </p></li>
+<li><p><strong>aspatial</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – [<em>col</em>=]<em>name</em>[,…].
+Control how aspatial data are handled during input and output.
+Full documentation is at <a class="reference external" href="https://docs.generic-mapping-tools.org/latest/gmt.html#aspatial-full">https://docs.generic-mapping-tools.org/latest/gmt.html#aspatial-full</a>.</p></li>
 <li><p><strong>coltypes</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – [<strong>i</strong>|<strong>o</strong>]<em>colinfo</em>.
 Specify data types of input and/or output columns (time or
 geographical data). Full documentation is at
 <a class="reference external" href="https://docs.generic-mapping-tools.org/latest/gmt.html#f-full">https://docs.generic-mapping-tools.org/latest/gmt.html#f-full</a>.</p></li>
+<li><p><strong>registration</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – <strong>g</strong>|<strong>p</strong>.
+Force gridline (<strong>g</strong>) or pixel (<strong>p</strong>) node registration.
+[Default is <strong>g</strong>(ridline)].</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -353,7 +363,7 @@ geographical data). Full documentation is at
         &copy; Copyright 2017-2021, The PyGMT Developers.
       
         <span class="commit">
-          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/8e2b2e6">8e2b2e6</a></code>.
+          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/a74fd39">a74fd39</a></code>.
         </span>
       
 

@@ -88,6 +88,10 @@ pygmt.Figure
     
     
     
+    Figure.solar
+    
+    
+    
     Figure.subplot
     
     

@@ -239,7 +239,15 @@
 
 
 <div class="viewcode-block" id="surface"><a class="viewcode-back" href="../../../api/generated/pygmt.surface.html#pygmt.surface">[docs]</a><span class="nd">@fmt_docstring</span>
-<span class="nd">@use_alias</span><span class="p">(</span><span class="n">I</span><span class="o">=</span><span class="s2">&quot;spacing&quot;</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="n">G</span><span class="o">=</span><span class="s2">&quot;outfile&quot;</span><span class="p">,</span> <span class="n">V</span><span class="o">=</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="s2">&quot;coltypes&quot;</span><span class="p">)</span>
+<span class="nd">@use_alias</span><span class="p">(</span>
+    <span class="n">I</span><span class="o">=</span><span class="s2">&quot;spacing&quot;</span><span class="p">,</span>
+    <span class="n">R</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span>
+    <span class="n">G</span><span class="o">=</span><span class="s2">&quot;outfile&quot;</span><span class="p">,</span>
+    <span class="n">V</span><span class="o">=</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span>
+    <span class="n">a</span><span class="o">=</span><span class="s2">&quot;aspatial&quot;</span><span class="p">,</span>
+    <span class="n">f</span><span class="o">=</span><span class="s2">&quot;coltypes&quot;</span><span class="p">,</span>
+    <span class="n">r</span><span class="o">=</span><span class="s2">&quot;registration&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="nd">@kwargs_to_strings</span><span class="p">(</span><span class="n">R</span><span class="o">=</span><span class="s2">&quot;sequence&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">surface</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
@@ -282,7 +290,9 @@
 <span class="sd">        to store the grid in.</span>
 
 <span class="sd">    {V}</span>
+<span class="sd">    {a}</span>
 <span class="sd">    {f}</span>
+<span class="sd">    {r}</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -338,7 +348,7 @@
         &copy; Copyright 2017-2021, The PyGMT Developers.
       
         <span class="commit">
-          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/8e2b2e6">8e2b2e6</a></code>.
+          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/a74fd39">a74fd39</a></code>.
         </span>
       
 

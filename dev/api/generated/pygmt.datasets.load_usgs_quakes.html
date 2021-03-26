@@ -47,7 +47,7 @@
   <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="pygmt.exceptions.GMTError" href="pygmt.exceptions.GMTError.html" />
+    <link rel="next" title="pygmt.datasets.load_fractures_compilation" href="pygmt.datasets.load_fractures_compilation.html" />
     <link rel="prev" title="pygmt.datasets.load_sample_bathymetry" href="pygmt.datasets.load_sample_bathymetry.html" />
     <!-- Google Analytics tracking code -->
     <!-- See https://developers.google.com/analytics/devguides/collection/analyticsjs/ for documentation. -->
@@ -147,6 +147,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pygmt.datasets.load_ocean_ridge_points.html">pygmt.datasets.load_ocean_ridge_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pygmt.datasets.load_sample_bathymetry.html">pygmt.datasets.load_sample_bathymetry</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pygmt.datasets.load_usgs_quakes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pygmt.datasets.load_fractures_compilation.html">pygmt.datasets.load_fractures_compilation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#exceptions">Exceptions</a></li>
@@ -248,15 +249,15 @@
 <h1>pygmt.datasets.load_usgs_quakes<a class="headerlink" href="#pygmt-datasets-load-usgs-quakes" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="pygmt.datasets.load_usgs_quakes">
-<code class="sig-prename descclassname"><span class="pre">pygmt.datasets.</span></code><code class="sig-name descname"><span class="pre">load_usgs_quakes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pygmt/datasets/tutorial.html#load_usgs_quakes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygmt.datasets.load_usgs_quakes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a table of global earthquakes form the USGS as a pandas.Dataframe.</p>
+<code class="sig-prename descclassname"><span class="pre">pygmt.datasets.</span></code><code class="sig-name descname"><span class="pre">load_usgs_quakes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pygmt/datasets/samples.html#load_usgs_quakes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pygmt.datasets.load_usgs_quakes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a table of global earthquakes form the USGS as a pandas.DataFrame.</p>
 <p>This is the <code class="docutils literal notranslate"><span class="pre">&#64;usgs_quakes_22.txt</span></code> dataset used in the GMT tutorials.</p>
 <p>The data are downloaded to a cache directory (usually <code class="docutils literal notranslate"><span class="pre">~/.gmt/cache</span></code>) the
 first time you invoke this function. Afterwards, it will load the data from
 the cache. So you’ll need an internet connection the first time around.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>pandas.Dataframe</em>) – The data table. Use <code class="docutils literal notranslate"><span class="pre">print(data.describe())</span></code> to see the available
+<dd class="field-odd"><p><strong>data</strong> (<em>pandas.DataFrame</em>) – The data table. Use <code class="docutils literal notranslate"><span class="pre">print(data.describe())</span></code> to see the available
 columns.</p>
 </dd>
 </dl>
@@ -273,7 +274,7 @@ columns.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pygmt.exceptions.GMTError.html" class="btn btn-neutral float-right" title="pygmt.exceptions.GMTError" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pygmt.datasets.load_fractures_compilation.html" class="btn btn-neutral float-right" title="pygmt.datasets.load_fractures_compilation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="pygmt.datasets.load_sample_bathymetry.html" class="btn btn-neutral float-left" title="pygmt.datasets.load_sample_bathymetry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -288,7 +289,7 @@ columns.</p>
         &copy; Copyright 2017-2021, The PyGMT Developers.
       
         <span class="commit">
-          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/8e2b2e6">8e2b2e6</a></code>.
+          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/a74fd39">a74fd39</a></code>.
         </span>
       
 

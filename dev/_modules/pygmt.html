@@ -244,12 +244,14 @@
 
 <span class="c1"># Import modules to make the high-level GMT Python API</span>
 <span class="kn">from</span> <span class="nn">pygmt</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">pygmt.accessors</span> <span class="kn">import</span> <span class="n">GMTDataArrayAccessor</span>
 <span class="kn">from</span> <span class="nn">pygmt.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
-<span class="kn">from</span> <span class="nn">pygmt.modules</span> <span class="kn">import</span> <span class="n">GMTDataArrayAccessor</span><span class="p">,</span> <span class="n">config</span>
 <span class="kn">from</span> <span class="nn">pygmt.session_management</span> <span class="kn">import</span> <span class="n">begin</span> <span class="k">as</span> <span class="n">_begin</span>
 <span class="kn">from</span> <span class="nn">pygmt.session_management</span> <span class="kn">import</span> <span class="n">end</span> <span class="k">as</span> <span class="n">_end</span>
 <span class="kn">from</span> <span class="nn">pygmt.src</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">blockmean</span><span class="p">,</span>
     <span class="n">blockmedian</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">,</span>
     <span class="n">grd2cpt</span><span class="p">,</span>
     <span class="n">grdcut</span><span class="p">,</span>
     <span class="n">grdfilter</span><span class="p">,</span>
@@ -446,7 +448,7 @@
         &copy; Copyright 2017-2021, The PyGMT Developers.
       
         <span class="commit">
-          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/8e2b2e6">8e2b2e6</a></code>.
+          Revision <code><a href="https://github.com/GenericMappingTools/pygmt/commit/a74fd39">a74fd39</a></code>.
         </span>
       
 
