@@ -28,7 +28,7 @@ import pygmt
 fig = pygmt.Figure()
 fig.plot(
     region=[0, 10, 0, 10],
-    projection="X25c/20c",
+    projection="x15c/10c",
     frame="a",
     x=[1, 8],
     y=[5, 9],
